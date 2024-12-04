@@ -44,9 +44,16 @@ namespace DragTree
             // TODO - check if the elapsed time in milliseconds is > 0. 
             // If yes show the time.
             // If no show "FOUL START" 
+            
+           if(stopwatch.ElapsedMilliseconds > 0)
+           {
+                timeLabel.Text = stopwatch.Elapsed.ToString(@"s\:fff");
 
-
-
+            }
+            else 
+           {
+                timeLabel.Text = "FOUL START";
+           }
 
         }
 
@@ -111,10 +118,11 @@ namespace DragTree
                     break;
 
                 case 4:
-                    row4col1.BackColor = Color.DarkGreen;
-                    row4col2.BackColor = Color.DarkGreen;
+                    row4col1.BackColor = Color.LimeGreen;
+                    row4col2.BackColor = Color.LimeGreen;
                     currentRow++;
                     lightTimer.Enabled = false;
+                    stopwatch.Start();
                     break;
             }
         }
